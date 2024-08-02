@@ -93,24 +93,24 @@ const products = [
   },
 ];
 
-// router.get("/specificprdct/:productID", (req, res) => {
-//   const specificProduct = products.find(
-//     (e) => e.productId == req.params.productID
-//   );
-//   if (specificProduct) {
-//     res
-//       .status(200)
-//       .json({ Product: specificProduct, message: "Product displayed" });
-//   }
-// });
-// router.get("/allproducts", (req, res) => {
-//   res.status(200).json({ Allproducts: products });
-// });
+router.get("/specificprdct/:productID", (req, res) => {
+  const specificProduct = products.find(
+    (e) => e.productId == req.params.productID
+  );
+  if (specificProduct) {
+    res
+      .status(200)
+      .json({ Product: specificProduct, message: "Product displayed" });
+  }
+});
+router.get("/allproducts", (req, res) => {
+  res.status(200).json({ Allproducts: products });
+});
 
-// router.post("/createproduct", (req, res) => {
-//   products.push(req.body);
-//   res.status(200).json({ NewProduct: products, msg: "New product added" });
-// });
+router.post("/createproduct", (req, res) => {
+  products.push(req.body);
+  res.status(200).json({ NewProduct: products, msg: "New product added" });
+});
 router.put("/updatedproduct/:ProductID", (req, res) => {
   const ID = req.params.ProductID;
   const { productName, productPrice, productDescription } = req.body;
